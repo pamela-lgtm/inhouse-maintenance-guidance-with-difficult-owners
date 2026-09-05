@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maintenance Cost &amp; Vendor Standards — Director Response Matrix Module</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#008C82;
+    --gold:#C9A227;
+    --charcoal:#1A1A1A;
+    --body:#1F1F1F;
+    --muted:#5A5651;
+    --strong:#0F0F0F;
+    --paper:#FBFAF8;
+    --rule:#E2DED7;
+    --tealwash:#F2F8F7;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--body);
+    font-family:'Jost',system-ui,sans-serif;
+    font-weight:400;
+    font-size:17px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:820px;margin:0 auto;padding:0 28px 96px;}
+  strong,b{font-weight:600;color:var(--strong);}
+
+  header.masthead{
+    border-top:6px solid var(--teal);
+    background:#fff;
+    padding:52px 28px 40px;
+    margin-bottom:44px;
+    border-bottom:1px solid var(--rule);
+  }
+  .masthead-inner{max-width:820px;margin:0 auto;}
+  .classification{
+    display:inline-block;
+    font-size:13px;
+    letter-spacing:.06em;
+    font-weight:600;
+    color:#8A6A00;
+    background:#FBF3DA;
+    border:1px solid #E8D89A;
+    border-radius:999px;
+    padding:5px 14px;
+    margin-bottom:22px;
+  }
+  h1{
+    font-family:'Cormorant Garamond',Georgia,serif;
+    font-weight:500;
+    font-size:46px;
+    line-height:1.14;
+    color:var(--charcoal);
+    margin:0 0 14px;
+    letter-spacing:.005em;
+  }
+  .deck{font-size:19px;color:var(--muted);margin:0 0 24px;max-width:60ch;}
+  .meta{font-size:14px;color:var(--muted);border-top:1px solid var(--rule);padding-top:16px;}
+  .meta span{display:block;}
+
+  h2{
+    font-family:'Cormorant Garamond',Georgia,serif;
+    font-weight:600;
+    font-size:31px;
+    color:var(--charcoal);
+    margin:56px 0 6px;
+    line-height:1.2;
+  }
+  h2 + .sub{color:var(--muted);font-size:16px;margin:0 0 22px;}
+  h3{
+    font-family:'Jost',sans-serif;
+    font-weight:600;
+    font-size:18px;
+    color:var(--strong);
+    margin:32px 0 8px;
+  }
+  p{margin:0 0 16px;max-width:68ch;}
+  ul{margin:0 0 18px;padding-left:22px;max-width:68ch;}
+  li{margin-bottom:9px;}
+
+  .figure{
+    display:flex;
+    gap:20px;
+    align-items:baseline;
+    border-left:3px solid var(--teal);
+    background:var(--tealwash);
+    border-radius:0 10px 10px 0;
+    padding:18px 22px;
+    margin:0 0 14px;
+  }
+  .figure .num{
+    font-family:'Cormorant Garamond',Georgia,serif;
+    font-size:34px;
+    font-weight:600;
+    color:var(--teal);
+    line-height:1;
+    white-space:nowrap;
+    min-width:110px;
+  }
+  .figure .txt{font-size:16px;}
+  .figure .src{display:block;color:var(--muted);font-size:14px;margin-top:4px;}
+
+  details{
+    border:1px solid var(--rule);
+    border-radius:12px;
+    background:#fff;
+    margin:0 0 14px;
+    overflow:hidden;
+  }
+  details[open]{border-color:#CFE5E2;}
+  summary{
+    cursor:pointer;
+    padding:16px 20px;
+    font-weight:600;
+    color:var(--strong);
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    align-items:center;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:'+';color:var(--teal);font-size:22px;font-weight:400;line-height:1;}
+  details[open] summary::after{content:'–';}
+  summary:hover{background:var(--tealwash);}
+  summary:focus-visible{outline:2px solid var(--teal);outline-offset:-2px;}
+  .details-body{padding:2px 20px 18px;border-top:1px solid var(--rule);}
+  .details-body p:first-child{margin-top:16px;}
+
+  table{border-collapse:collapse;width:100%;margin:0 0 24px;font-size:16px;}
+  th,td{text-align:left;vertical-align:top;padding:13px 14px;border-bottom:1px solid var(--rule);}
+  th{
+    font-weight:600;
+    color:var(--strong);
+    background:#fff;
+    border-bottom:2px solid var(--teal);
+    font-size:15px;
+  }
+  td:first-child{width:47%;color:var(--strong);}
+  tbody tr:nth-child(even){background:#fff;}
+
+  .say{
+    border:1px solid #CFE5E2;
+    background:#fff;
+    border-radius:12px;
+    padding:20px 22px;
+    margin:0 0 16px;
+  }
+  .say h4{margin:0 0 10px;font-size:15px;font-weight:600;color:var(--teal);}
+  .never h4{color:#9A2D2D;}
+  .never{border-color:#EBD3D3;}
+  .say ul{margin-bottom:0;}
+
+  .flag{
+    border-left:3px solid var(--gold);
+    background:#FDFAF0;
+    border-radius:0 10px 10px 0;
+    padding:18px 22px;
+    margin:0 0 20px;
+  }
+  .flag p:last-child{margin-bottom:0;}
+
+  footer{
+    margin-top:72px;
+    padding-top:24px;
+    border-top:1px solid var(--rule);
+    font-size:14px;
+    color:var(--muted);
+  }
+  .sources li{font-size:14.5px;color:var(--muted);margin-bottom:7px;}
+
+  @media (max-width:640px){
+    h1{font-size:34px;}
+    h2{font-size:26px;}
+    .figure{flex-direction:column;gap:6px;}
+    .figure .num{min-width:0;font-size:30px;}
+    td:first-child{width:auto;}
+    table,thead,tbody,th,td,tr{display:block;}
+    thead{display:none;}
+    td{border:none;padding:4px 0;}
+    tbody tr{border-bottom:1px solid var(--rule);padding:14px 0;}
+    td:first-child{font-weight:600;}
+    td:last-child{color:var(--muted);}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <span class="classification">Internal — not for client distribution</span>
+    <h1>Maintenance Cost &amp; Vendor Standards</h1>
+    <p class="deck">Why repairs cost what they do in 2026, why Verandah will not chase the lowest bid, and how to hold both positions with an owner without an argument.</p>
+    <div class="meta">
+      <span>Director Response Matrix v1 — Module Insert, Internal Rev 1</span>
+      <span>Companion to the Risk Allocation Doctrine and the Control Boundary Doctrine</span>
+      <span>September 2026</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<h2>How to use this module</h2>
+<p class="sub">Read this before you answer a pricing complaint, not after.</p>
+
+<p>Owner pricing complaints almost always arrive as one of three claims: the repair cost too much, Verandah should have found someone cheaper, or the work should not have been needed at all. None of those is a maintenance question. All three are expectation questions, and they get answered with the same four facts and the same boundary.</p>
+
+<p>Route by which claim you are hearing:</p>
+<ul>
+  <li><strong>"Why did this cost so much?"</strong> — cost drivers, Section 1. Answer with numbers, not sympathy.</li>
+  <li><strong>"Use my guy / find someone cheaper."</strong> — vendor standard, Sections 2 and 3. This is a licensing and liability answer, not a preference answer.</li>
+  <li><strong>"Skip the turn / do it myself."</strong> — turn math, Section 4.</li>
+  <li><strong>Two demands that cannot both be met.</strong> — the trade-off table, Section 5.</li>
+</ul>
+
+<div class="flag">
+  <p><strong>Standing rule for this module.</strong> Never explain cheap pricing by referring to a vendor's workers, their immigration status, or who they employ. We cannot verify it, it is not the mechanism that matters, and putting it in writing creates exposure for Verandah. The correct explanation is always what the low bidder has removed: license, insurance, workers' compensation, permits and warranty reserve. That version is documentable and it wins the argument on its own.</p>
+</div>
+
+<h2>1. What is actually driving cost</h2>
+<p class="sub">Four forces, none of which Verandah or the owner controls.</p>
+
+<details open>
+  <summary>Tariffs on materials</summary>
+  <div class="details-body">
+    <div class="figure"><span class="num">50%</span><span class="txt">Tariff rate as of April 2026 on steel, aluminum and copper items made entirely or mostly of those metals. Derivatives sit at 25%, industrial and electrical equipment incorporating those materials at 15%, softwood lumber at 10% with derivative products at 25%.<span class="src">Tax Credit Advisor, 2026 U.S. Construction Costs Q2 Update, April 2026</span></span></div>
+    <div class="figure"><span class="num">6%</span><span class="txt">Estimated increase in construction materials costs against a 2024 baseline under tariff rates as of April 2026, down from a 9% estimate at the summer 2025 peak.<span class="src">Cushman &amp; Wakefield, April 2026</span></span></div>
+    <div class="figure"><span class="num">$10,900</span><span class="txt">Typical per-home cost effect of tariff actions reported by builders, with more than 60% reporting higher costs as a direct result.<span class="src">NAHB, 2026</span></span></div>
+    <p>Relevance to us: this shows up in water heaters, HVAC components, electrical panels, appliances, roofing fasteners and anything with copper line set. It is not a vendor markup and it is not negotiable at our scale.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Skilled labor scarcity</summary>
+  <div class="details-body">
+    <div class="figure"><span class="num">349,000</span><span class="txt">Net new construction workers the industry needs in 2026 just to meet demand, rising to a projected 456,000 in 2027.<span class="src">Associated Builders and Contractors</span></span></div>
+    <div class="figure"><span class="num">40%</span><span class="txt">Approximate immigrant share of the construction workforce in Florida. Nationally the figure is 34%, exceeding 60% in drywall, roofing and plastering.<span class="src">NAHB</span></span></div>
+    <div class="figure"><span class="num">28%</span><span class="txt">Share of construction firms reporting workforce disruption tied to ICE activity in the prior six months; roughly 10% lost workers directly and another 20% said their subcontractors did.<span class="src">AGC and NCCER joint survey, 2026</span></span></div>
+    <div class="figure"><span class="num">$36.54</span><span class="txt">Average hourly field craft wage, up 4% year over year, with 92% of firms reporting difficulty finding workers.<span class="src">AGC/NCCER 2025 Workforce Survey</span></span></div>
+    <p>Central Florida coverage in May 2026 attributed local shortages to an aging workforce, fewer young people entering the trades, and immigration enforcement, with contractors describing workers leaving the state.</p>
+    <p>Relevance to us: fewer vendors bidding, longer lead times, and less willingness to quote work they are unlikely to win. This is the reason a good fair vendor who is still in business is worth protecting.</p>
+  </div>
+</details>
+
+<details>
+  <summary>The refrigerant transition — the one owners never see coming</summary>
+  <div class="details-body">
+    <p>Since January 1, 2025, new residential air conditioning and heat pump equipment must use a refrigerant under a 700 GWP limit. R-410A, at a GWP around 2,088, is out for new equipment and has been replaced by R-454B (GWP around 466) at most major brands and R-32 at others.</p>
+    <div class="figure"><span class="num">Rising</span><span class="txt">R-410A distributor pricing. Sources differ on magnitude — one puts it at roughly $12 to $18 per pound by early 2026 against $6 to $10 previously, another reports wholesale moving from $8–$12 to $25–$45 per pound in some markets inside 18 months. Direction is not in dispute.<span class="src">Call Mattioni, June 2026; HVAC Calculator Hub, March 2026</span></span></div>
+    <div class="figure"><span class="num">5–15%</span><span class="txt">Price premium on A2L equipment over the R-410A generation.<span class="src">HVAC Calculator Hub, June 2026</span></span></div>
+    <p>Two points to have ready. Existing R-410A systems remain legal to operate and repair — no owner is required to replace anything. And an R-410A system cannot be converted to R-454B; the refrigerants use different lubricants and design pressures, so any vendor offering a field conversion is either wrong or worse.</p>
+    <p>EPA's May 2026 final rule, effective July 27, 2026, removed the January 1, 2026 installation deadline, so R-410A systems manufactured before 2025 can still be installed until inventory runs out.</p>
+    <p>Relevance to us: this is why the same recharge costs multiples of what it cost three years ago. It is a federal phasedown, not a vendor decision.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Insurance</summary>
+  <div class="details-body">
+    <div class="figure"><span class="num">119%</span><span class="txt">Increase in landlord insurance premiums over four years.<span class="src">RealPage data, reported by Lula, 2026</span></span></div>
+    <p>Relevance to us: the owner complaining about a repair invoice is usually absorbing this at the same time. Naming it shows we understand the whole picture and are not defending one line item in isolation.</p>
+  </div>
+</details>
+
+<h2>2. Why Verandah will not source rock-bottom labor</h2>
+<p class="sub">This is a licensing position, not a preference.</p>
+
+<p>Florida's unlicensed-work exemption is narrow. Under §489.103(9), work of a casual, minor or inconsequential nature is exempt only where the aggregate contract price for labor, materials and all other items is under $2,500. The exemption disappears if the work is part of a larger operation, if a job is divided into smaller contracts to evade the threshold, or if the person advertises as a contractor. Electrical, plumbing, roofing and structural work require a licensed contractor regardless of cost.</p>
+
+<p>Most of what a rental actually needs sits outside that exemption.</p>
+
+<h3>What the owner is exposed to</h3>
+<ul>
+  <li>A civil penalty of up to <strong>$5,000</strong> for knowingly hiring an unlicensed contractor, as aiding and abetting unlicensed activity.</li>
+  <li><strong>Personal liability</strong> if an unlicensed worker is injured on the property, with the owner's insurance potentially declining to cover it.</li>
+  <li><strong>Denied insurance claims</strong> on damage related to unlicensed work.</li>
+  <li><strong>Remediation at the owner's cost</strong> where permits were required and never pulled — which surfaces at sale.</li>
+</ul>
+
+<h3>What the vendor is exposed to</h3>
+<ul>
+  <li>First offense is a <strong>first-degree misdemeanor</strong>. A repeat offense, or a first offense during a declared state of emergency, is a <strong>third-degree felony</strong>.</li>
+  <li>DBPR can issue cease-and-desist orders and administrative fines up to <strong>$10,000</strong>.</li>
+  <li>Their contract is <strong>unenforceable</strong> and any lien is void — meaning the recourse the owner imagines they have does not exist.</li>
+</ul>
+
+<p>Verandah holds a real estate broker's license. Directing work to unlicensed vendors on a client's property is not a corner we can cut at any price.</p>
+
+<h2>3. The lowest bid is the vendor least likely to be there later</h2>
+<p class="sub">Use this when an owner wants us to go back to a cheap vendor about poor work.</p>
+
+<div class="figure"><span class="num">44%</span><span class="txt">Share of construction businesses that survive to the five-year mark. For residential contractors specifically, five-year survival runs 35–40% on margins of 6–8%.<span class="src">Contractor Foreman / BLS; TGUC Financial, June 2026</span></span></div>
+<div class="figure"><span class="num">25%</span><span class="txt">Share of construction companies facing potential closure due to inaccurate estimates.<span class="src">Contractor Foreman / BLS</span></span></div>
+<div class="figure"><span class="num">12-year high</span><span class="txt">Construction bankruptcy filings in 2026, with 42% of filers being companies under $2 million in revenue.<span class="src">Buildermuse, April 2026</span></span></div>
+
+<p>The argument in one line for an owner: a vendor who cannot price his own work correctly is not a bargain, he is a business that will not exist when the warranty callback comes.</p>
+
+<p>Verandah's leverage with vendors comes from consistent recurring volume across a portfolio, which a self-managing owner cannot offer. That leverage is spent on response time, priority scheduling and standing behind work — not on driving a vendor below his cost. Spending it the second way destroys it.</p>
+
+<h2>4. Turn math</h2>
+<p class="sub">For the owner who wants to skip the turn or do the work themselves.</p>
+
+<div class="figure"><span class="num">$800–1,500</span><span class="txt">Basic single-family turnover — cosmetic refresh, deep cleaning, minor repairs — when the property comes back in good condition.<span class="src">Breasy, July 2026</span></span></div>
+<div class="figure"><span class="num">$1,500–3,000</span><span class="txt">Baseline per-turnover allowance used by institutional single-family operators. Most budget 1.5–2.5% of gross rent for turnover and maintenance combined.<span class="src">Breasy, July 2026</span></span></div>
+<div class="figure"><span class="num">$1,000–5,000</span><span class="txt">Full turnover range for individual rental owners, with lost rental income during vacancy as the single largest component.<span class="src">Belong, via RapidEye, August 2026</span></span></div>
+
+<h3>Deferred maintenance multiplies</h3>
+<ul>
+  <li>Repairs on a deferred backlog run <strong>3 to 4 times</strong> the cost of the same work done as planned maintenance.</li>
+  <li>Emergency repairs triggered by deferred maintenance carry an additional <strong>2 to 3 times</strong> multiplier from after-hours dispatch, expedited parts and secondary damage.</li>
+</ul>
+
+<p>The pivot to use: skipping the turn does not save the turn cost. It converts a known cost into days on market, and it lowers the quality of applicant the property attracts — which produces the next problem the owner will bring back to us.</p>
+
+<h2>5. Requests that cannot both be met</h2>
+<p class="sub">Name the trade-off. Do not pick one silently and let the owner discover it.</p>
+
+<p>Most pricing conflicts are not disagreements about a number. They are two reasonable wishes arriving in the same email that cannot coexist. Saying so plainly moves the conversation from "Verandah won't" to "here is the choice."</p>
+
+<table>
+  <thead>
+    <tr><th>What the owner is asking for</th><th>What has to give</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Three bids, and fix it today</td><td>Bidding takes days. Emergency dispatch costs a premium. Pick speed or pick price.</td></tr>
+    <tr><td>Lowest price, and licensed, insured and warrantied</td><td>The license, the insurance and the warranty reserve are what the price difference buys.</td></tr>
+    <tr><td>Don't spend money, and don't let anything fail</td><td>Prevention is the cheaper of the two. Declining it does not avoid the cost, it delays and multiplies it.</td></tr>
+    <tr><td>Don't replace it, and don't let it break again</td><td>A repair on a failing component buys time, not certainty. That is the trade being made.</td></tr>
+    <tr><td>Approve nothing without my sign-off, and respond immediately</td><td>Every approval step is a day of tenant exposure and often a second trip charge.</td></tr>
+    <tr><td>Charge the tenant for everything, and keep tenants who renew</td><td>Aggressive chargebacks on items that are not the tenant's responsibility drive good tenants out and invite disputes.</td></tr>
+    <tr><td>Skip the turn, and lease fast at top of market</td><td>Condition drives both days on market and applicant quality.</td></tr>
+    <tr><td>Use my cheaper vendor, and hold Verandah accountable for the outcome</td><td>We can manage vendors we selected and vetted. We cannot warrant work by a vendor we did not choose.</td></tr>
+  </tbody>
+</table>
+
+<h2>6. Language bank</h2>
+
+<div class="say">
+  <h4>Use these</h4>
+  <ul>
+    <li>"The price difference between that bid and ours is the license, the insurance and the warranty. Those are the three things that protect you."</li>
+    <li>"That's a federal refrigerant phasedown, not a vendor decision. Here's what it means for this system."</li>
+    <li>"We can't control what the part costs. We can control who we send, when we send them, and whether it gets caught early."</li>
+    <li>"Both of those are reasonable. They can't both happen on the same job. Here's the trade-off — which do you want?"</li>
+    <li>"We'd be sending you to a company that has a better-than-even chance of being closed before the warranty period ends."</li>
+    <li>"Skipping the turn doesn't save that money. It moves it into vacancy, where it costs more."</li>
+  </ul>
+</div>
+
+<div class="say never">
+  <h4>Never say these</h4>
+  <ul>
+    <li>Anything about a vendor's workers, their status, or who they employ. Not in email, not on the phone, not internally in writing.</li>
+    <li>"There's nothing we can do about pricing." There is — vendor selection, scheduling, prevention, repair-versus-replace analysis. Say what we do control.</li>
+    <li>"That's just what it costs." Give the driver. Owners accept a reason and reject a shrug.</li>
+    <li>"Your vendor is no good." Address the standard, not the person.</li>
+    <li>Any estimate of what a repair "should" cost that we have not actually quoted.</li>
+  </ul>
+</div>
+
+<h2>7. Escalation</h2>
+<p>Standard module routing applies. Two pricing-specific triggers:</p>
+<ul>
+  <li>An owner who directs us in writing to engage a vendor we have identified as unlicensed for the work in question — stop, document, and route to Broker before any dispatch.</li>
+  <li>An owner who alleges Verandah marked up, steered or profited from a vendor invoice — this is an allegation touching the license. Stop the written thread and escalate to Broker immediately.</li>
+</ul>
+
+<footer>
+  <p><strong>Figures in this module are current as of September 2026 and will move.</strong> Tariff rates, refrigerant pricing and labor figures in particular are re-checked before this module is quoted in owner communication. Nothing here is legal advice; licensing questions with real exposure go to Broker-selected counsel.</p>
+  <p class="sources"><strong>Primary sources:</strong></p>
+  <ul class="sources">
+    <li>Fla. Stat. §489.103(9) — exemptions, and §489 penalties for unlicensed contracting</li>
+    <li>Cushman &amp; Wakefield, tariff impact on construction costs, April 2026</li>
+    <li>Associated Builders and Contractors / BLS Producer Price Index, construction input prices, January 2026</li>
+    <li>NAHB, tariff impact and construction workforce composition, 2026</li>
+    <li>AGC and NCCER, workforce survey and ICE disruption data, 2025–2026</li>
+    <li>EPA AIM Act refrigerant phasedown; final rule effective July 27, 2026</li>
+    <li>RealPage landlord insurance premium data, via Lula, 2026</li>
+    <li>Breasy turnover and maintenance cost benchmarks, 2026; RapidEye turnover statistics, August 2026</li>
+    <li>Contractor Foreman / Bureau of Labor Statistics construction survival data; Buildermuse construction bankruptcy analysis, April 2026</li>
+  </ul>
+  <p>Verandah Properties, LLC — Internal. Do not forward to owners, tenants or vendors.</p>
+</footer>
+
+</div>
+</body>
+</html>
